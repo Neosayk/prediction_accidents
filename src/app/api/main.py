@@ -84,7 +84,7 @@ async def root():
 async def auth_Cookie(request: Request, username: str = "", password: str = ""):
     if (username == "" or password == ""):
         return templates.TemplateResponse("verif.html", {"request": request, "resultat": ""})
-    res = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    res = supabase.table("data_users").select("*").eq("username", username).execute()
     if (len(res.data) < 1):
         return templates.TemplateResponse("verif.html", {"request": request, "resultat": "Mauvais username"})
     if (res.data[0]["password"] != password):
@@ -107,7 +107,7 @@ async def logout():
 async def index(request: Request, username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    res = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    res = supabase.table("data_users").select("*").eq("username", username).execute()
     if (len(res.data) < 1):
         return RedirectResponse(url="/")
     if (res.data[0]["password"] != password):
@@ -119,7 +119,7 @@ async def index(request: Request, username: Annotated[Union[str, None], Cookie()
 async def user_Verif(request: Request, username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    res = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    res = supabase.table("data_users").select("*").eq("username", username).execute()
     if (len(res.data) < 1):
         return RedirectResponse(url="/")
     if (res.data[0]["password"] != password):
@@ -132,7 +132,7 @@ async def user_Verif(request: Request, username: Annotated[Union[str, None], Coo
 async def user_Modif(request: Request, uname: str = "", role: str = "", username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    user = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    user = supabase.table("data_users").select("*").eq("username", username).execute()
     user2 = user.data[0]
     if (user2["password"] != password):
         return RedirectResponse(url="/")
@@ -140,7 +140,7 @@ async def user_Modif(request: Request, uname: str = "", role: str = "", username
         return templates.TemplateResponse("modif.html", {"request": request, "resultat": "Vous n'avez pas les droits pour modifier un utilisateur"})
     if (uname == "" or role == ""):
         return templates.TemplateResponse("modif.html", {"request": request, "resultat": ""})
-    res = supabase.table("Data_Users").update({"role": role}).eq("username", uname).execute()
+    res = supabase.table("data_users").update({"role": role}).eq("username", uname).execute()
     if (len(res.data) == 0):
         return templates.TemplateResponse("modif.html", {"request": request, "resultat": "Utilisateur non trouvé"})
     result = str(res.data[0])
@@ -151,7 +151,7 @@ async def user_Modif(request: Request, uname: str = "", role: str = "", username
 async def user_edit(request: Request, uname: str = "", passw: str = "", role: str = "", username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    user = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    user = supabase.table("data_users").select("*").eq("username", username).execute()
     user2 = user.data[0]
     if (user2["password"] != password):
         return RedirectResponse(url="/")
@@ -159,7 +159,7 @@ async def user_edit(request: Request, uname: str = "", passw: str = "", role: st
         return templates.TemplateResponse("create.html", {"request": request, "resultat": "Vous n'avez pas les droits pour modifier un utilisateur"})
     if (uname == "" or passw == "" or role == ""):
         return templates.TemplateResponse("create.html", {"request": request, "resultat": "missing parameter(s)"})
-    res = supabase.table("Data_Users").insert({"username": uname, "password": passw, "role": role}).execute()
+    res = supabase.table("data_users").insert({"username": uname, "password": passw, "role": role}).execute()
     result = res.data[0]
     return templates.TemplateResponse("create.html", {"request": request, "resultat": result})
 
@@ -168,7 +168,7 @@ async def user_edit(request: Request, uname: str = "", passw: str = "", role: st
 async def prediciton(request: Request, username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None, long: str = "string", lat: str = "string", secu1: str = "", locp: str = "", actp: str = "string", agg: str = "", obsm: str = "", etatp: str = "", catv: str = "", col: str = "", place: str = "", obs: str = "", vma: str = "", catu: str = "", manv: str = ""):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    user = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    user = supabase.table("data_users").select("*").eq("username", username).execute()
     user2 = user.data[0]
     if (user2["password"] != password):
         return RedirectResponse(url="/")
@@ -248,7 +248,7 @@ async def prediciton(request: Request, username: Annotated[Union[str, None], Coo
 async def sauvegarder(request: Request, username: Annotated[Union[str, None], Cookie()] = None, password: Annotated[Union[str, None], Cookie()] = None, long: str = "string", lat: str = "string", secu1: str = "", locp: str = "", actp: str = "string", agg: str = "", obsm: str = "", etatp: str = "", catv: str = "", col: str = "", place: str = "", obs: str = "", vma: str = "", catu: str = "", manv: str = "", grav: str = ""):
     if (username == None or password == None):
         return RedirectResponse(url="/")
-    user = supabase.table("Data_Users").select("*").eq("username", username).execute()
+    user = supabase.table("data_users").select("*").eq("username", username).execute()
     user2 = user.data[0]
     if (user2["password"] != password):
         return RedirectResponse(url="/")
