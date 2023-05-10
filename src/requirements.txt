@@ -1,0 +1,13 @@
+pandas
+requests
+beautifulsoup4
+glob2
+pandas-profiling
+category_encoders
+mlflow
+xgboost
+scikit-learn
+supabase
+apache-airflow[sendgrid]
+PyGithub
+python-dotenv

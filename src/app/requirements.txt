@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pandas==1.5.3
+numpy
+python-multipart
+pydantic
+starlette
+supabase
+python-dotenv
+jinja2
+xgboost
+category_encoders

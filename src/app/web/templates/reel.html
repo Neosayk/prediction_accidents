@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Enregistrer un accident</title>
+</head>
+<body>
+    <header class="topbar">
+        <nav>
+            <a href="/prediction">Prédiction</a>
+            <a href="/reel">Enregistrement</a>
+            <a href="/role">Droits</a>
+            <a href="/modif">Modification</a>
+            <a href="/create">Creation</a>
+        </nav>
+	</header>
+    <h1>Enregistrer les valeurs d'un accident</h1>
+    <hr>
+    <form action="/reel">
+        <fieldset>
+            <legend>Les valeurs</legend>
+            <div>
+                <label for="LongInput">Longitude</label>
+                <input type="text" name="long" id="LongInput">
+            </div>
+            <div>
+                <label for="latinput">Latitude</label>
+                <input type="text" name="lat" id="latinput">
+            </div>
+            <div>
+                <label>Présence et utilisation d'un équipement de sécurité</label>
+                <select name="secu1" id="secu1Input">
+                    <option value="-1">Non renseigné</option>
+                    <option value="0">Aucun équipement</option>
+                    <option value="1">Ceinture</option>
+                    <option value="2">Casque</option>
+                    <option value="3">Dispositif enfants</option>
+                    <option value="4">Gilet réfléchissant</option>
+                    <option value="5">Airbag (2RM/3RM)</option>
+                    <option value="6">Gants (2RM/3RM)</option>
+                    <option value="7">Gants + Airbag (2RM/3RM)</option>
+                    <option value="8">Non déterminable</option>
+                    <option value="9">Autre</option>
+                </select>
+             </div>
+             <div>
+                <label>Localisation du piéton</label>
+                <select name="locp" id="locpInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="0">Sans objet</option>
+                    <optgroup label="Sur chaussée :">
+                        <option value="1">A + 50 m du passage piéton</option>
+                        <option value="2">A – 50 m du passage piéton</option>
+                    </optgroup>
+                    <optgroup label="Sur passage piéton :">
+                        <option value="3">Sans signalisation lumineuse</option>
+                        <option value="4">Avec signalisation lumineuse</option>
+                    </optgroup>
+                    <optgroup label="Divers :">
+                        <option value="5">Sur trottoir</option>
+                        <option value="6">Sur accotement</option>
+                        <option value="7">Sur refuge ou BAU</option>
+                        <option value="8">Sur contre allée</option>
+                        <option value="9">Inconnue</option>
+                    </optgroup>
+                </select>
+             </div>
+             <div>
+                <label>Action du piéton</label>
+                <select name="actp" id="actpInput">
+                    <option value="-1">Non renseigné</option>
+                    <optgroup label="Se déplaçant :">
+                        <option value="0">Non renseigné ou sans objet</option>
+                        <option value="1">Sens véhicule heurtant</option>
+                        <option value="2">Sens inverse du véhicule</option>
+                    </optgroup>
+                    <optgroup label="Divers :">
+                        <option value="3">Traversant</option>
+                        <option value="4">Masqué</option>
+                        <option value="5">Jouant – courant</option>
+                        <option value="6">Avec animal</option>
+                        <option value="9">Autre</option>
+                        <option value="A">Monte/descend du véhicule</option>
+                        <option value="B">Inconnue</option>
+                    </optgroup>
+                </select>
+             </div>
+             <div>
+                <label>Localisation</label>
+                <select name="agg" id="aggInput">
+                    <option value="1">Hors agglomération</option>
+                    <option value="2">En agglomération</option>
+                </select>
+             </div>
+             <div>
+                <label>Obstacle mobile heurté</label>
+                <select name="obsm" id="obsmInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="0">Aucun</option>
+                    <option value="1">Piéton</option>
+                    <option value="2">Véhicule</option>
+                    <option value="4">Véhicule sur rail</option>
+                    <option value="5">Animal domestique</option>
+                    <option value="6">Animal sauvage</option>
+                    <option value="9">Autre</option>
+                </select>
+             </div>
+             <div>
+                <labe>Le piéton accidenté était seul ou non ?</label>
+                    <select name="etatp" id="etatpInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="1">Seul</option>
+                    <option value="2">Accompagné</option>
+                    <option value="3">En groupe</option>
+                </select>    
+             </div>
+             <div>
+                <label>Catégorie du véhicule</label>
+                <select name="catv" id="catvInput">
+                    <option value="00">Indéterminable</option>
+                    <option value="01">Bicyclette</option>
+                    <option value="02">Cyclomoteur &lt;50cm<sup>3</sup></option>
+                    <option value="03">Voiturette (Quadricycle à moteur carrossé) (anciennement "voiturette ou tricycle à moteur")</option>
+                    <option value="04">Référence inutilisée depuis 2006 (scooter immatriculé)</option>
+                    <option value="05">Référence inutilisée depuis 2006 (motocyclette)</option>
+                    <option value="06">Référence inutilisée depuis 2006 (side-car)</option>
+                    <option value="07">VL seul</option>
+                    <option value="08">Référence inutilisée depuis 2006 (VL + caravane)</option>
+                    <option value="09">Référence inutilisée depuis 2006 (VL + remorque)</option>
+                    <option value="10">VU seul 1,5T &lt;= PTAC &lt;= 3,5T avec ou sans remorque (anciennement VU seul 1,5T &lt;= PTAC &lt;= 3,5T)</option>
+                    <option value="11">Référence inutilisée depuis 2006 (VU (10) + caravane)</option>
+                    <option value="12">Référence inutilisée depuis 2006 (VU (10) + remorque)</option>
+                    <option value="13">PL seul 3,5T &lt; PTCA &lt;= 7,5T</option>
+                    <option value="14">PL seul &gt; 7,5T</option>
+                    <option value="15">PL &gt; 3,5T + remorque</option>
+                    <option value="16">Tracteur routier seul</option>
+                    <option value="17">Tracteur routier + semi-remorque</option>
+                    <option value="18">Référence inutilisée depuis 2006 (transport en commun)</option>
+                    <option value="19">Référence inutilisée depuis 2006 (tramway)</option>
+                    <option value="20">Engin spécial</option>
+                    <option value="21">Tracteur agricole</option>
+                    <option value="30">Scooter &lt; 50 cm<sup>3</sup></option>
+                    <option value="31">Motocyclette &gt; 50 cm<sup>3</sup> et &lt;= 125 cm<sup>3</sup></option>
+                    <option value="32">Scooter &gt; 50 cm<sup>3</sup> et &lt;= 125 cm<sup>3</sup></option>
+                    <option value="33">Motocyclette &gt; 125 cm<sup>3</sup></option>
+                    <option value="34">Scooter &gt; 125 cm<sup>3</sup></option>
+                    <option value="35">Quad léger &lt;= 50 cm<sup>3</sup> (Quadricycle à moteur non carrossé)</option>
+                    <option value="36">Quad lourd &gt; 50 cm<sup>3</sup> (Quadricycle à moteur non carrossé)</option>
+                    <option value="37">Autobus</option>
+                    <option value="38">Autocar</option>
+                    <option value="39">Train</option>
+                    <option value="40">Tramway</option>
+                    <option value="41">3RM &lt;= 50 cm<sup>3</sup></option>
+                    <option value="42">3RM &gt; 50 cm<sup>3</sup> &lt;= 125 cm<sup>3</sup></option>
+                    <option value="43">3RM &gt; 125 cm<sup>3</sup></option>
+                    <option value="50">EDP à moteur</option>
+                    <option value="60">EDP sans moteur</option>
+                    <option value="80">VAE</option>
+                    <option value="99">Autre véhicule</option>
+                </select>
+             </div>
+             <div>
+                <label>Type de collision</label>
+                <select name="col" id="colInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="1">Deux véhicules - frontale</option>
+                    <option value="2">Deux véhicules – par l’arrière</option>
+                    <option value="3">Deux véhicules – par le coté</option>
+                    <option value="4">Trois véhicules et plus – en chaîne</option>
+                    <option value="5">Trois véhicules et plus - collisions multiples</option>
+                    <option value="6">Autre collision</option>
+                    <option value="7">Sans collision</option>
+                </select>
+             </div>
+             <div>
+                <label for="PlaceInput">Place occupée dans le véhicule par l'usager au moment de l'accident</label>
+                <input type="text" name="place" id="PlaceInput">
+            </div>
+            <div>
+                <label>Obstacle fixe heurté</label>
+                <select name="obs" id="obsInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="0">Sans objet</option>
+                    <option value="1">Véhicule en stationnement</option>
+                    <option value="2">Arbre</option>
+                    <option value="3">Glissière métallique</option>
+                    <option value="4">Glissière béton</option>
+                    <option value="5">Autre glissière</option>
+                    <option value="6">Bâtiment, mur, pile de pont</option>
+                    <option value="7">Support de signalisation verticale ou poste d’appel d’urgence</option>
+                    <option value="8">Poteau</option>
+                    <option value="9">Mobilier urbain</option>
+                    <option value="10">Parapet</option>
+                    <option value="11">Ilot, refuge, borne haute</option>
+                    <option value="12">Bordure de trottoir</option>
+                    <option value="13">Fossé, talus, paroi rocheuse</option>
+                    <option value="14">Autre obstacle fixe sur chaussée</option>
+                    <option value="15">Autre obstacle fixe sur trottoir ou accotement</option>
+                    <option value="16">Sortie de chaussée sans obstacle</option>
+                    <option value="17">Buse – tête d’aqueduc</option>
+                </select>
+            </div>
+            <div>
+                <label for="VmaInput">Vitesse maximale autorisée sur le lieu et au moment de l’accident</label>
+                <input type="text" name="vma" id="VmaInput">
+            </div>
+            <div>
+                <label>Catégorie d'usager</label>
+                <select name="catu" id="catuInput">
+                    <option value="1">Conducteur</option>
+                    <option value="2">Passager</option>
+                    <option value="3">Piéton</option>
+                </select>
+            </div>
+            <div>
+                <label>Manoeuvre principale avant l’accident</label>
+                <select name="manv" id="manvInput">
+                    <option value="-1">Non renseigné</option>
+                    <option value="0">Inconnue</option>
+                    <option value="1">Sans changement de direction</option>
+                    <option value="2">Même sens, même file</option>
+                    <option value="3">Entre 2 files</option>
+                    <option value="4">En marche arrière</option>
+                    <option value="5">A contresens</option>
+                    <option value="6">En franchissant le terre-plein central</option>
+                    <option value="7">Dans le couloir bus, dans le même sens</option>
+                    <option value="8">Dans le couloir bus, dans le sens inverse</option>
+                    <option value="9">En s’insérant</option>
+                    <option value="10">En faisant demi-tour sur la chaussée</option>
+                    <optgroup label="Changement de file :">
+                        <option value="11">A gauche</option>
+                        <option value="12">A droite</option>
+                    </optgroup>
+                    <optgroup label="Déporté :">
+                        <option value="13">A gauche</option>
+                        <option value="14">A droite</option>
+                    </optgroup>
+                    <optgroup label="Tournant :">
+                        <option value="15">A gauche</option>
+                        <option value="16">A droite</option>
+                    </optgroup>
+                    <optgroup label="Dépassant :">
+                        <option value="17">A gauche</option>
+                        <option value="18">A droite</option>
+                    </optgroup>
+                    <optgroup label="Divers :">
+                        <option value="19">Traversant la chausséee</option>
+                        <option value="20">A Manœuvre de stationnement</option>
+                        <option value="21">Manœuvre d’évitement</option>
+                        <option value="22">Ouverture de porte</option>
+                        <option value="23">Arrêté (hors stationnement)</option>
+                        <option value="24">En stationnement (avec occupants)</option>
+                        <option value="25">Circulant sur trottoir</option>
+                        <option value="26">Autres manœuvres</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div>
+                <label>Gravité</label>
+                <select name="grav" id="Gravite">
+                    <option value="0">Non Grave</option>
+                    <option value="1">Grave</option>
+                </select>
+            </div>
+        </fieldset>
+        <button>
+            VALIDER
+        </button>
+    </form>
+    <h1>
+        Schéma pour remplir le champ :"Place occupée dans le véhicule par l'usager au moment de l'accident"
+    </h1>
+    <img src="/img/place.png">
+    <hr>
+    <h1>RESULTAT {{ resultat }}</h1>
+    <hr>
+    <p>
+    <a href="/index">Revenir au sommaire</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Créer un utilisateur</title>
+</head>
+<body>
+    <header class="topbar">
+        <nav>
+            <a href="/prediction">Prédiction</a>
+            <a href="/reel">Enregistrement</a>
+            <a href="/role">Droits</a>
+            <a href="/modif">Modification</a>
+            <a href="/create">Creation</a>
+        </nav>
+	</header>
+    <h1>Créer un utilisateur</h1>
+    <hr>
+    <form action="/create">
+        <fieldset>
+            <legend>Les Valeurs</legend>
+            <div>
+                <label for="UsernameInput">Username</label>
+                <input type="text" name="uname" id="UsernameInput">
+            </div>
+            <div>
+                <label for="PwdInput">Password</label>
+                <input type="text" name="passw" id="PwdInput">
+            </div>
+            <div>
+                <label>Role</label>
+                <select name="role">
+                    <option value="user">Utilisateur</option>
+                    <option value="test">Testeur</option>
+                    <option value="admin">administrateur</option>
+                </select>
+            </div>
+        </fieldset>
+        <button>
+            VALIDER
+        </button>
+    </form>
+    <hr>
+    <h1>RESULTAT {{ resultat }}</h1>
+    <hr>
+    <p>
+    <a href="/index">Revenir au sommaire</a>
+    </p>
+</body>
+</html>

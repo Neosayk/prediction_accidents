@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-size: 16px;
+    color: rgba(0,0,0,.87);
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+}
+
+.topbar nav {
+    float: left;
+}
+
+.topbar nav a {
+    color: #9f9f9f;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 53px;
+    line-height: 23px;
+}
+
+.topbar nav a:hover, .toopbar nav a.active {
+    color: #000;
+}
+
+.banniere img {
+    top: 50px;
+    width: 751px;
+    height: 525px;
+    position: relative;
+    z-index: 2;
+    padding-left: 200px;
+}
+
+.main {
+    float: left;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+    z-index: 2;
+}
+
+.article {
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.article a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+.article_img {
+    float: left;
+    width: 500px;
+    margin-right: 25px;
+}
+
+.article_img img{
+    width: 100%;
+    height: auto;
+}
+
+.article-title {
+    font-size: 2.25rem;
+}
+
+.footer {
+    clear: both;
+}

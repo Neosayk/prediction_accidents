@@ -1,0 +1,26 @@
+version: '3.8'
+x-environment: &global_env
+  SUPABASE_URL: https://hbfsuldcqbjuhvxkurew.supabase.co
+  SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhiZnN1bGRjcWJqdWh2eGt1cmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMzMzUxMDksImV4cCI6MTk5ODkxMTEwOX0.wBfv41rdprOUDxSTWDAJau_6fubI0A1v29FRvFfTH5Q
+services:
+  api:
+    environment:
+      <<: *global_env
+    build: 
+      context: ./src/app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+  airflow:
+    environment:
+      <<: *global_env
+      AIRFLOW__EMAIL__EMAIL_BACKEND: airflow.providers.sendgrid.utils.emailer.send_email
+      GITHUB_TOKEN: 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
+      SENDGRID_MAIL_FROM: j.napol@tabtile.fr
+      SENDGRID_API_KEY: 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
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
