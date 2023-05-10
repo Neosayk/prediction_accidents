@@ -89,6 +89,10 @@ prediction_accident
 1. Clonez le repositorie Github et utilisez un terminal pour vous rendre dans le répertoire téléchargé
 2. Exécutez la commande "docker-compose up" et attendez jusqu'à la fin de l'initialisation des conteneurs
 3. Ouvrez votre navigateur internet pour accéder à la page "localhost:8000" pour accéder à notre API web
-4. Entrez les identifiants de test (login: datascientest password: datascientest) pour tester l'application
+4. Entrez les identifiants de test (login: datascientest | password: datascientest) pour tester l'application
 5. Ouvrez votre navigateur internet pour accéder à la page "localhost:8080" pour accéder à notre serveur Airflow
-6. Entrez les identifiants de test (login: datascientest password: datascientest) pour tester notre DAG
+6. Entrez les identifiants de test (login: datascientest | password: datascientest) pour tester notre DAG
+7. Ouvrez votre navigateur internet pour accéder à la page "supabase.com" pour accéder à notre base de données
+8. Entrez les identifiants de test (login: mlops.datascientest@outlook.fr | password: D@t@scientest2023) pour tester notre DAG
+7. Utilisez notre notebook disponible dans le répertoire téléchargé pour découvrir nos différentes étapes de modélisation
+8. Analysez les résultats de nos expériences de modélisation en cliquant sur le lien généré dans la partie Mlflow du notebook
