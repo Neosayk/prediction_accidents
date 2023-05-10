@@ -11,3 +11,4 @@ jinja2
 xgboost
 category_encoders
 pytest
+httpx
