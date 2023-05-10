@@ -4,7 +4,8 @@ from fastapi import HTTPException
 from fastapi.testclient import TestClient
 import pytest
 from unittest.mock import MagicMock, patch
-from main import app, Authentification, user
+from src.app.api.main import app, Authentification, user
+
 
 client = TestClient(app)
 

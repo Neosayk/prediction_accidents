@@ -25,7 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f src/app/requirements.txt ]; then pip install -r src/app/requirements.txt; fi
 
-      - name: Run tests
+      - name: Run Tests
         run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
           cd tests/app/api
           python -m unittest test_routes.py
+
