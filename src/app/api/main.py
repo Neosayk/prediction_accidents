@@ -89,7 +89,7 @@ async def auth_Cookie(request: Request, username: str = "", password: str = ""):
         return templates.TemplateResponse("verif.html", {"request": request, "resultat": "Mauvais username"})
     if (res.data[0]["password"] != password):
         return templates.TemplateResponse("verif.html", {"request": request, "resultat": "Mauvais password"})
-    response = RedirectResponse(url="/inde")
+    response = RedirectResponse(url="/index")
     response.set_cookie(key="username", value=username)
     response.set_cookie(key="password", value=password)
     return response
