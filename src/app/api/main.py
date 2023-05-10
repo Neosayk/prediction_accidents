@@ -1,4 +1,4 @@
-# Importation des bibliothèques 
+# Importation des bibliothèques
 import os
 import json
 import pandas as pd
