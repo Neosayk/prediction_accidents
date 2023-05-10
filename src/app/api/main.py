@@ -232,7 +232,7 @@ async def prediciton(request: Request, username: Annotated[Union[str, None], Coo
     # Enregistrement de la prédiction
     json_data = df.to_json(orient='records')
     json_data = json.loads(json_data)
-    supabase.table("Data_Predicts").insert(json_data).execute()
+    supabase.table("data_prediction").insert(json_data).execute()
 
     # resultat
     if (int(output)== 0):
@@ -278,7 +278,7 @@ async def sauvegarder(request: Request, username: Annotated[Union[str, None], Co
     )
 
 	# Modification des valeurs
-    res = supabase.table("Data_Reels").insert({
+    res = supabase.table("data_live").insert({
 		"long": jsonBody.long,
 		"lat": jsonBody.lat,
 		"secu1": jsonBody.secu1,
