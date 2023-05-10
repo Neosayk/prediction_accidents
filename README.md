@@ -4,6 +4,9 @@
 
 prediction_accident
 │
+├── .github
+│   └── workflows
+│       └── main.yml
 ├── data
 │   ├── external
 │   ├── interim
