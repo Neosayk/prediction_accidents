@@ -1,8 +1,8 @@
 version: '3.8'
 x-environment: &global_env
-  SUPABASE_URL: https://hbfsuldcqbjuhvxkurew.supabase.co
-  SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhiZnN1bGRjcWJqdWh2eGt1cmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMzMzUxMDksImV4cCI6MTk5ODkxMTEwOX0.wBfv41rdprOUDxSTWDAJau_6fubI0A1v29FRvFfTH5Q
-services:
+  SUPABASE_URL: https://xemeulesojjkcoajrchi.supabase.co
+  SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlbWV1bGVzb2pqa2NvYWpyY2hpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM3NTY4ODksImV4cCI6MTk5OTMzMjg4OX0.5dlk9erdfCZImNc-aMj8o2Fh-m-gWI9Uwro7SakgEwI
+  services:
   api:
     environment:
       <<: *global_env
