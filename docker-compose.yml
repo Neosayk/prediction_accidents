@@ -2,7 +2,7 @@ version: '3.8'
 x-environment: &global_env
   SUPABASE_URL: https://xemeulesojjkcoajrchi.supabase.co
   SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlbWV1bGVzb2pqa2NvYWpyY2hpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM3NTY4ODksImV4cCI6MTk5OTMzMjg4OX0.5dlk9erdfCZImNc-aMj8o2Fh-m-gWI9Uwro7SakgEwI
-  services:
+services:
   api:
     environment:
       <<: *global_env
