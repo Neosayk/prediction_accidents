@@ -57,22 +57,23 @@ prediction_accident
 │   │           └── verif.html
 │   ├── data
 │   │   ├── data_extraction.py
-│   │   ├── data_features.py
-│   │   ├── data_management.py
-│   │   └── data_merge.py
+│   │   ├── data_merging.py
+│   │   └── data_processing.py
 │   ├── Dockerfile
 │   ├── entrypoint.sh
 │   ├── features
-│   │   └── data_features.py
+│   │   └── data_featuring.py
 │   ├── models
-│   │   ├── data_check.py
-│   │   ├── data_model.py
-│   │   └── data_tuning.py
+│   │   ├── data_deployment.py
+│   │   ├── data_modeling.py
+│   │   ├── data_monitoring.py
+│   │   ├── data_tuning.py
+│   │   └── data_validation.py
 │   ├── requirements.txt
 │   ├── visualization
-│   │   └── data_profile.py
+│   │   └── data_profiling.py
 │   └── workflows
-│       └── dag_prediction_accident.py
+│       └── dag_prediction_accidents.py
 ├── tests
 │   ├── app
 │   │   └── test_routes.py
@@ -87,6 +88,7 @@ prediction_accident
 ## Initialisation de l'infrastructure
 
 1. Clonez le repositorie Github et utilisez un terminal pour vous rendre dans le répertoire téléchargé
+2. Renseignez la variable d'environnement "GITHUB_TOKEN" dans les fichiers "./docker-compose.yml" et "./src/config.env"
 2. Exécutez la commande "docker-compose up" et attendez jusqu'à la fin de l'initialisation des conteneurs
 3. Ouvrez votre navigateur internet pour accéder à la page "localhost:8000" pour accéder à notre API web
 4. Entrez les identifiants de test (login: datascientest | password: datascientest) pour tester l'application

@@ -1,8 +1,9 @@
 import pandas as pd
 from pandas_profiling import ProfileReport
 
-def generate_data_profile(df: pd.DataFrame, output_file: str, title: str):
-    print("Création du profile...")
+
+def generate_analysis_report(df: pd.DataFrame, output_file: str, title: str):
+    print("Initialisation du rapport...")
     profile = ProfileReport(
         df,
         title=title,
@@ -12,4 +13,3 @@ def generate_data_profile(df: pd.DataFrame, output_file: str, title: str):
     )
     print("Génération du rapport...")
     profile.to_file(output_file=output_file)
-    print(f"Le rapport a été généré avec succès et enregistré dans le fichier {output_file}.")

@@ -4,6 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 import pickle
+import glob
 from fastapi import FastAPI, Depends, Request, Cookie, FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -68,11 +69,16 @@ class InputDataReel(BaseModel):
     manv: int
     grav: int
 
-# Chargement des modèles
-with open("xgboost.pkl", 'rb') as pickle_file:
-    model = pickle.load(pickle_file)
-with open("targetencoder.pkl", 'rb') as pickle_file:
+# Chargement de l'encodeur et du modèles
+targetencoder_files = glob.glob('*targetencoder.pkl', recursive=True)
+most_recent_targetencoder_file = max(targetencoder_files, key=os.path.getmtime)
+with open(most_recent_targetencoder_file, 'rb') as pickle_file:
     encoder = pickle.load(pickle_file)
+
+xgboost_files = glob.glob('*xgboost.pkl', recursive=True)
+most_recent_xgboost_file = max(xgboost_files, key=os.path.getmtime)
+with open(most_recent_xgboost_file, 'rb') as pickle_file:
+    model = pickle.load(pickle_file)
 
 # Route de test de l'API
 @app.get("/root")

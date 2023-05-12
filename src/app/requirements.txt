@@ -12,3 +12,4 @@ xgboost
 category_encoders
 pytest
 httpx
+glob2
