@@ -193,7 +193,7 @@ def data_monitoring_func():
     print("Initialisation de l'enregistrement des données de l'expérience...")
     token = os.getenv("GITHUB_TOKEN")
 
-    file_extensions = ['csv', 'html']
+    file_extensions = ['csv']
     data_monitoring.make_tarfile(file_extensions)
 
     data_monitoring.upload_to_github(
@@ -206,10 +206,10 @@ def data_monitoring_func():
     )
 
     data_monitoring.upload_to_github(
-        file_types="data_profiling.html.tar.gz",
+        file_types="data-profile.html",
         token=token,
         repo_name="prediction_accidents",
-        commit_message="Airflow : Ajout du rapport d'analyse exploratoire du dernier entrainement",
+        commit_message="Airflow : Ajout du dernier rapport d'analyse exploratoire",
         branch="dev",
         file_path_base="reports"
     )
