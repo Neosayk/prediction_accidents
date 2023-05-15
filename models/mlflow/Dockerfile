@@ -6,9 +6,9 @@ RUN apt-get update && \
     apt-get install -y build-essential && \
     apt-get install -y git
 
-# Créer le répertoire /mlflow/projet_mlops et cloner le dépôt Git
-RUN mkdir -p /mlflow/projet_mlops  && \
-    git clone -b dev https://github.com/neosayk/projet_mlops.git /mlflow/projet_mlops
+# Créer le répertoire /mlflow/prediction_accidents et cloner le dépôt Git
+RUN mkdir -p /mlflow/prediction_accidents  && \
+    git clone -b dev https://github.com/neosayk/prediction_accidents.git /mlflow/prediction_accidents
 
 # Mettre en place le dossier de travail
 WORKDIR /mlflow/
@@ -18,7 +18,7 @@ EXPOSE 5000
 
 # Commande par défaut pour exécuter le serveur MLflow
 CMD mlflow server \
-    --backend-store-uri /mlflow/projet_mlops/models/mlflow/mlruns \
-    --default-artifact-root /mlflow/projet_mlops/models/mlflow/mlruns \
+    --backend-store-uri /mlflow/prediction_accidents/models/mlflow/mlruns \
+    --default-artifact-root /mlflow/prediction_accidents/models/mlflow/mlruns \
     --host 0.0.0.0 \
     --port 5000
