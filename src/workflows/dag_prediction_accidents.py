@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 import time
 import os
 import glob
-import shutil
 import pandas as pd
 import data_extraction
 import data_merging
@@ -160,9 +159,9 @@ def data_validation_func2(ti):
     else:
         return 'data_deployment_task'
 
-## Tâche pour déployer le modèle de machine learning dans l'environnement production
+## Tâche pour déployer le modèle de machine learning en production
 def data_deployment_func():
-    print("Initialisation du déploiement du model de machine learning dans l'environnement de production...")
+    print("Initialisation du déploiement du model de machine learning en production...")
     timestamp = time.strftime('%Y%m%d_%H%M%S')
     token = os.getenv("GITHUB_TOKEN")
 
@@ -172,11 +171,11 @@ def data_deployment_func():
         timestamp = timestamp,
         input_path = most_recent_targetencoder_file,
         token = token,
-        repo_name = "prediction_accidents_test",
+        repo_name = "projet_mlops",
         commit_message = "Airflow : Ajout du dernier encodeur entrainé",
         branch = "main",
     )
-    print("Déploiement du model de machine learning dans l'environnement de production terminée.")
+    print("Déploiement du model de machine learning en production terminée.")
 
     xgboost_files = glob.glob('/opt/airflow/mlruns/**/xgboost.pkl', recursive=True)
     most_recent_xgboost_file = max(xgboost_files, key=os.path.getmtime)
@@ -184,32 +183,49 @@ def data_deployment_func():
         timestamp = timestamp,
         input_path = most_recent_xgboost_file,
         token = token,
-        repo_name = "prediction_accidents_test",
+        repo_name = "projet_mlops",
         commit_message = "Airflow : Ajout du dernier model entrainé",
         branch = "main",
     )
 
-## Tâche pour enregistrer les artifacts mlfow dans l'environnement developpement
+## Tâche pour enregistrer les données de l'expérience
 def data_monitoring_func():
-    print("Initialisation de l'enregistrement des artifacts mlflow dans l'environnement de développement...")
-    timestamp = time.strftime('%Y%m%d_%H%M%S')
+    print("Initialisation de l'enregistrement des données de l'expérience...")
     token = os.getenv("GITHUB_TOKEN")
+
+    file_extensions = ['csv', 'html']
+    data_monitoring.make_tarfile(file_extensions)
+
     data_monitoring.upload_to_github(
-        timestamp = timestamp,
-        input_path = "mlruns",
-        token = token,
-        repo_name = "prediction_accidents_test",
-        commit_message = "Airflow : Ajout des artifacts mlflow du dernier entrainement",
-        branch = "dev",
+        file_types="*.csv.tar.gz",
+        token=token,
+        repo_name="projet_mlops",
+        commit_message="Airflow : Ajout des données du dernier entrainement",
+        branch="dev",
+        file_path_base="data"
     )
 
-    extensions = ['csv', 'html', 'pkl']
-    for ext in extensions:
-        files = glob.glob(f"./*.{ext}")
-        for file in files:
-            os.remove(file)
-    shutil.rmtree('mlruns')
-    print("Enregistrement des artifacts mlflow dans l'environnement de développement terminée.")
+    data_monitoring.upload_to_github(
+        file_types="data_profiling.html.tar.gz",
+        token=token,
+        repo_name="projet_mlops",
+        commit_message="Airflow : Ajout du rapport d'analyse exploratoire du dernier entrainement",
+        branch="dev",
+        file_path_base="reports"
+    )
+
+    data_monitoring.upload_to_github(
+        file_types="mlruns",
+        token=token,
+        repo_name="projet_mlops",
+        commit_message="Airflow : Ajout des artifacts mlflow du dernier entrainement",
+        branch="dev",
+        file_path_base="models/mlflow/mlruns"
+    )
+
+    file_extensions = ['.txt', '.csv', '.html', '.pkl', '.tar.gz']
+    data_monitoring.delete_files(file_extensions)
+    print("Enregistrement des données de l'expérience terminée.")
 
 
 # Initialisation du DAG
@@ -301,7 +317,7 @@ task9 = EmailOperator(
     task_id="data_alert_task",
     to="mlops.datascientest@outlook.fr",
     subject="MLflow Metrics Alert",
-    html_content="{{task_instance.xcom_pull(task_ids='data_tuning_task')}}",
+    html_content="{{ task_instance.xcom_pull(task_ids='data_tuning_task') }}",
     dag=dag,
 )
 

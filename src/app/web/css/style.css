@@ -36,46 +36,44 @@ body, html {
     color: #000;
 }
 
+.banniere {
+    top: 50px;
+    width: 751px;
+    height: 525px;
+    z-index: 2;
+    margin-left: 20px;
+}
+
 .banniere img {
     top: 50px;
     width: 751px;
     height: 525px;
-    position: relative;
     z-index: 2;
-    padding-left: 200px;
+    margin-left: 20px;
 }
 
 .main {
     float: left;
     background: #fff;
-    width: 100%;
+    width: 70%;
     box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
     z-index: 2;
+    padding: 20px;
 }
 
 .article {
     overflow: hidden;
-    margin-right: 20px;
+    padding-left: 100px;
 }
 
 .article a {
     color: inherit;
     text-decoration: none;
+    padding-left: 20px;
 }
 
 .article a:hover {
     text-decoration: underline;
-}
-
-.article_img {
-    float: left;
-    width: 500px;
-    margin-right: 25px;
-}
-
-.article_img img{
-    width: 100%;
-    height: auto;
 }
 
 .article-title {
@@ -84,4 +82,12 @@ body, html {
 
 .footer {
     clear: both;
+}
+
+.sidebar {
+    float: right;
+    height: 200px;
+    background: grey;
+    width: 30%;
+    padding-left: 20px;
 }

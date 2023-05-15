@@ -3,7 +3,7 @@ FROM apache/airflow:slim-latest-python3.10
 
 USER root
 
-# Mettre à jour le système et installer les outils de construction
+# Mettre à jour le système et installer les outils de construction essentiel
 RUN apt-get update && \
     apt-get install -y build-essential
 

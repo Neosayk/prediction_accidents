@@ -1,13 +1,14 @@
 import os
 from github import Github
 
+
 def upload_to_github(input_path, token, repo_name, commit_message, branch, timestamp):
     print("Préparation pour l'envoi à Github...")
     g = Github(token)
     repo = g.get_user().get_repo(repo_name)
 
     local_file_path = input_path
-    github_file_path = f"models/{timestamp}_{os.path.basename(local_file_path)}"
+    github_file_path = f"src/app/api/{timestamp}_{os.path.basename(local_file_path)}"
     with open(local_file_path, "rb") as file:
         content = file.read()
     try:
