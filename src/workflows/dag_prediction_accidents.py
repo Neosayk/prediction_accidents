@@ -171,7 +171,7 @@ def data_deployment_func():
         timestamp = timestamp,
         input_path = most_recent_targetencoder_file,
         token = token,
-        repo_name = "projet_mlops",
+        repo_name = "prediction_accidents",
         commit_message = "Airflow : Ajout du dernier encodeur entrainé",
         branch = "main",
     )
@@ -183,7 +183,7 @@ def data_deployment_func():
         timestamp = timestamp,
         input_path = most_recent_xgboost_file,
         token = token,
-        repo_name = "projet_mlops",
+        repo_name = "prediction_accidents",
         commit_message = "Airflow : Ajout du dernier model entrainé",
         branch = "main",
     )
@@ -199,7 +199,7 @@ def data_monitoring_func():
     data_monitoring.upload_to_github(
         file_types="*.csv.tar.gz",
         token=token,
-        repo_name="projet_mlops",
+        repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des données du dernier entrainement",
         branch="dev",
         file_path_base="data"
@@ -208,7 +208,7 @@ def data_monitoring_func():
     data_monitoring.upload_to_github(
         file_types="data_profiling.html.tar.gz",
         token=token,
-        repo_name="projet_mlops",
+        repo_name="prediction_accidents",
         commit_message="Airflow : Ajout du rapport d'analyse exploratoire du dernier entrainement",
         branch="dev",
         file_path_base="reports"
@@ -217,7 +217,7 @@ def data_monitoring_func():
     data_monitoring.upload_to_github(
         file_types="mlruns",
         token=token,
-        repo_name="projet_mlops",
+        repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des artifacts mlflow du dernier entrainement",
         branch="dev",
         file_path_base="models/mlflow/mlruns"
@@ -241,7 +241,7 @@ dag = DAG(
     dag_id='prediction_accidents',
     default_args=default_args,
     description='Réentrainement périodique du modèle de prédiction des accidents de la route en France',
-    tags=['projet_mlops', 'fbazin', 'jnapol', 'datascientest' ],
+    tags=['fbazin', 'jnapol', 'datascientest' ],
     schedule_interval='0 0 1 * *',
     catchup=False,
 )
