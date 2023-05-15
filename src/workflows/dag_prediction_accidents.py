@@ -196,7 +196,7 @@ def data_monitoring_func():
     data_monitoring.make_tarfile(file_extensions)
 
     data_monitoring.upload_to_github(
-        paths="*.csv.tar.gz",
+        file_types="*.csv.tar.gz",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des données du dernier entrainement",
@@ -205,7 +205,7 @@ def data_monitoring_func():
     )
 
     data_monitoring.upload_to_github(
-        paths="*.html.tar.gz",
+        file_types="*.html.tar.gz",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout du dernier rapport d'analyse exploratoire",
@@ -214,7 +214,7 @@ def data_monitoring_func():
     )
 
     data_monitoring.upload_to_github(
-        paths="mlruns",
+        file_types="mlruns",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des artifacts mlflow du dernier entrainement",
