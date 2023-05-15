@@ -1,12 +1,11 @@
 # Importation des bibliothèques nécessaires
-from datetime import datetime
+from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import BranchPythonOperator
 from airflow.operators.email_operator import EmailOperator
 from supabase import create_client, Client
-from datetime import timedelta
 from dotenv import load_dotenv
 import time
 import os
@@ -103,7 +102,7 @@ def data_merging_func():
 def data_profiling_func():
     print("Initialisation de la création du rapport d'analyse exploratoire des données...")
     df = pd.read_csv("data_accidents.csv", sep=',', encoding='latin1', low_memory=False)
-    output_file = "data_profiling.html"
+    output_file = "data_profile.html"
     title = "Analyse exploratoire des accidents routiers en France"
     data_profiling.generate_analysis_report(df, output_file, title)
     print("Création du rapport d'analyse exploratoire des données terminée.")
@@ -193,34 +192,34 @@ def data_monitoring_func():
     print("Initialisation de l'enregistrement des données de l'expérience...")
     token = os.getenv("GITHUB_TOKEN")
 
-    file_extensions = ['csv']
+    file_extensions = ['csv', 'html']
     data_monitoring.make_tarfile(file_extensions)
 
     data_monitoring.upload_to_github(
-        file_types="*.csv.tar.gz",
+        paths="*.csv.tar.gz",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des données du dernier entrainement",
         branch="dev",
-        file_path_base="data"
+        file_path_base="data",
     )
 
     data_monitoring.upload_to_github(
-        file_types="data-profile.html",
+        paths="*.html.tar.gz",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout du dernier rapport d'analyse exploratoire",
         branch="dev",
-        file_path_base="reports"
+        file_path_base="reports",
     )
 
     data_monitoring.upload_to_github(
-        file_types="mlruns",
+        paths="mlruns",
         token=token,
         repo_name="prediction_accidents",
         commit_message="Airflow : Ajout des artifacts mlflow du dernier entrainement",
         branch="dev",
-        file_path_base="models/mlflow/mlruns"
+        file_path_base="models/mlflow/mlruns",
     )
 
     file_extensions = ['.txt', '.csv', '.html', '.pkl', '.tar.gz']
