@@ -190,6 +190,10 @@ def data_deployment_func():
 ## Tâche pour enregistrer les données de l'expérience
 def data_monitoring_func():
     print("Initialisation de l'enregistrement des données de l'expérience...")
+    timestamp = time.strftime('%Y%m%d_%H%M%S_')
+    file_extensions = ['csv', 'html']
+    data_monitoring.make_tarfile(file_extensions, timestamp)
+
     token = os.getenv("GITHUB_TOKEN")
 
     file_extensions = ['csv', 'html']

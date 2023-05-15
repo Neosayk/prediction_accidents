@@ -5,7 +5,7 @@ import glob
 from github import Github
 
 
-def make_tarfile(file_extensions):
+def make_tarfile(file_extensions, timestamp):
     target_dir = os.getcwd()
 
     for file_extension in file_extensions:
@@ -14,7 +14,7 @@ def make_tarfile(file_extensions):
         for filename in files_to_archive:
             print(f"Commencer la création de l'archive pour {filename}...")
             
-            archive_name = os.path.join(target_dir, os.path.basename(filename) + '.tar.gz')
+            archive_name = os.path.join(target_dir, timestamp + os.path.basename(filename) + '.tar.gz')
             print(f"Le nom de l'archive sera {archive_name}")
             
             with tarfile.open(archive_name, "w:gz") as tar:

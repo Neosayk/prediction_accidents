@@ -4,7 +4,8 @@ FROM ubuntu/mlflow:2.1.1_1.0-22.04
 # Mettre à jour le système et installer les outils de construction essentiel
 RUN apt-get update && \
     apt-get install -y build-essential && \
-    apt-get install -y git
+    apt-get install -y git && \
+    apt-get install nano
 
 # Créer le répertoire /mlflow/prediction_accidents et cloner le dépôt Git
 RUN mkdir -p /mlflow/prediction_accidents  && \

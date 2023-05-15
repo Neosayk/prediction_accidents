@@ -4,7 +4,8 @@ FROM python:slim
 # Mettre à jour le système et installer les outils de construction
 RUN apt-get update && \
     apt-get install -y build-essential && \
-    apt-get install -y curl
+    apt-get install -y curl && \
+    apt-get install nano
 
 # Définir le répertoire de travail
 WORKDIR /app

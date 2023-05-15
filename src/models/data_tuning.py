@@ -24,22 +24,22 @@ def xgboost_fine_tuning(experiment_name, df_encoded, target, n_iter=100, cv=3):
         print("Début de la recherche d'hyperparamètres avec RandomizedSearchCV...")
         model = XGBClassifier(objective='binary:logistic', random_state=42)
         param_grid = {
-            "learning_rate": np.logspace(-3, 0, num=200),
-            "max_depth": np.arange(1, 10),
-            "n_estimators": np.arange(50, 300, step=10),
-            "gamma": np.logspace(-8, 0, num=200),
-            "min_child_weight": np.arange(1, 10),
-            "subsample": np.linspace(0.5, 1, num=100),
-            "colsample_bytree": np.linspace(0.5, 1, num=100),
-            "reg_alpha": np.logspace(-8, 0, num=200),
-            "reg_lambda": np.logspace(-8, 0, num=200),
+            "learning_rate": np.logspace(-3, 0, num=10),
+            "max_depth": np.arange(1, 5),
+            "n_estimators": np.arange(50, 150, step=10),
+            "gamma": np.logspace(-8, 0, num=10),
+            "min_child_weight": np.arange(1, 5),
+            "subsample": np.linspace(0.5, 1, num=10),
+            "colsample_bytree": np.linspace(0.5, 1, num=10),
+            "reg_alpha": np.logspace(-8, 0, num=10),
+            "reg_lambda": np.logspace(-8, 0, num=10),
         }
         random_search = RandomizedSearchCV(
             model, 
             param_distributions=param_grid, 
-            n_iter=n_iter, 
+            n_iter=10,
             scoring="neg_mean_squared_error", 
-            cv=cv, 
+            cv=3,
             n_jobs=-1, 
             random_state=42
         )
