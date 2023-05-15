@@ -1,0 +1,15 @@
+artifact_uri: file:///opt/airflow/mlruns/785492864490592389/91a33adf471844e3a4ee2868ad84034a/artifacts
+end_time: 1684129543708
+entry_point_name: ''
+experiment_id: '785492864490592389'
+lifecycle_stage: active
+run_id: 91a33adf471844e3a4ee2868ad84034a
+run_name: thoughtful-stork-120
+run_uuid: 91a33adf471844e3a4ee2868ad84034a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1684129541088
+status: 3
+tags: []
+user_id: airflow
