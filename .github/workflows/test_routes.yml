@@ -30,3 +30,6 @@ jobs:
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           cd tests/app/api
           python -m unittest test_routes.py
+        env: 
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
