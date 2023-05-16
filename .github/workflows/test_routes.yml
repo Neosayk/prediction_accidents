@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'src/app/api/main.py'
+      - 'tests/app/api/test_routes.py'
 
 jobs:
   test:
