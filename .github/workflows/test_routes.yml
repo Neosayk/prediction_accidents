@@ -24,7 +24,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install fastapi uvicorn pytest
-          pip install pathlib httpx pandas
+          pip install pathlib httpx pandas supabase
 
       - name: Run Tests
         run: |
