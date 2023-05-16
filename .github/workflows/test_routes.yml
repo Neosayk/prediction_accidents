@@ -26,7 +26,7 @@ jobs:
       - name: Run Tests
         working-directory: 'src/app/api/'
         run: |
-          python -m unittest test_routes.py
+          python -m unittest 'tests/app/api/test_routes.py'
         env: 
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
