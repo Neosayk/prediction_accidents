@@ -25,16 +25,13 @@ supabase: Client = create_client(url, key)
 
 app = FastAPI()
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG_DIR = os.path.join(BASE_DIR, 'web', 'img')
-app.mount("/img", StaticFiles(directory=IMG_DIR), name="img")
-app.mount("/css", StaticFiles(directory=IMG_DIR), name="css")
-
 # Rediriger les images du dossier img sur le localhost
-#app.mount("/img", StaticFiles(directory="img"), name="img")
+IMG_DIR = os.path.join(BASE_DIR, 'web', 'img')
+app.mount("/img", StaticFiles(directory=IMG_DIR), name="img") #app.mount("/img", StaticFiles(directory="img"), name="img")
 # Rediriger les fichiers css du dossier css sur le localhost
-#app.mount("/css", StaticFiles(directory="css"), name="css")
+CSS_DIR = os.path.join(BASE_DIR, 'web', 'css')
+app.mount("/css", StaticFiles(directory=IMG_DIR), name="css") #app.mount("/css", StaticFiles(directory="css"), name="css")
 
 # Selection du dossier de templates pour les templates
 templates = Jinja2Templates(directory="templates")
