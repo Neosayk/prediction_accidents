@@ -1,7 +1,7 @@
 # Projet MlOps : Prédictions des accidents routiers en France
 
 
-## Structure du repositorie Github
+## Structure du projet
 
 prediction_accidents
 ├── tests
@@ -72,7 +72,7 @@ prediction_accidents
     └── entrypoint.sh
 
 
-## Initialisation de l'infrastructure
+## Initialisation du projet
 
 1. Clonez le repositorie Github et utilisez un terminal pour vous rendre dans le répertoire téléchargé
 2. Renseignez les variables d'environnement dans les fichiers "./docker-compose.yml", "./src/config.env" et "./src/app/config.env"
