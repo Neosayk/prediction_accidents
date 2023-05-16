@@ -4,9 +4,6 @@ on:
   push:
     paths:
       - 'src/app/api/main.py'
-  pull_request:
-    paths:
-      - 'src/app/api/main.py'
 
 jobs:
   test:
