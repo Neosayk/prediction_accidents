@@ -24,11 +24,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install fastapi uvicorn pytest
-          pip install pathlib httpx
+          pip install pathlib httpx pandas
 
       - name: Run Tests
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           cd tests/app/api
           python -m unittest test_routes.py
-
