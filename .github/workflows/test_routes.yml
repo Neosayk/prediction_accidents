@@ -33,8 +33,6 @@ jobs:
       - name: Run Tests
         working-directory: tests/app/api
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
-          cd 'src/app/api'
           python -m unittest test_routes.py
         env: 
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
