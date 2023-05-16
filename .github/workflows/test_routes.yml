@@ -26,6 +26,7 @@ jobs:
           pip install -r 'src/app/requirements.txt'
 
       - name: Run Tests
+        working-directory: tests/app/api
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           cd tests/app/api
