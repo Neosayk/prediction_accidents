@@ -1,0 +1,6 @@
+artifact_location: file:///opt/airflow/mlruns/503141918334657333
+creation_time: 1684246615882
+experiment_id: '503141918334657333'
+last_update_time: 1684246615882
+lifecycle_stage: active
+name: Accidents_Model
