@@ -1,5 +1,5 @@
 # Importation des bibliothèques
-import os 
+import os  
 import json
 import pandas as pd
 import numpy as np
