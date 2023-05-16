@@ -23,7 +23,7 @@ jobs:
           pip install -r 'src/app/requirements.txt'
     
       - name: Run Tests
-        working-directory: tests/app/api
+        working-directory: 'src/app/api/'
         run: |
           python -m unittest test_routes.py
         env: 
